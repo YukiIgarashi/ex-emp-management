@@ -1,7 +1,12 @@
 package jp.co.sample.domain;
 
-import java.security.Timestamp;
+import java.util.Date;
 
+/**
+ * 従業員用ドメイン
+ * @author igayu
+ *
+ */
 public class Employee {
 	
 	private Integer id;
@@ -12,7 +17,7 @@ public class Employee {
 	
 	private String gender;
 	
-	private Timestamp timestamp;
+	private Date hireDate;
 	
 	private String mailAddress;
 	

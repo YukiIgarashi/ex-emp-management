@@ -1,5 +1,11 @@
 package jp.co.sample.domain;
 
+
+/**
+ * 管理者用ドメイン
+ * @author igayu
+ *
+ */
 public class Administrator {
 	
 	private Integer id;
@@ -9,6 +15,18 @@ public class Administrator {
 	private String mailAddress;
 	
 	private String password;
+
+	public Administrator() {
+		super();
+	}
+
+	public Administrator(Integer id, String name, String mailAddress, String password) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.mailAddress = mailAddress;
+		this.password = password;
+	}
 
 	public Integer getId() {
 		return id;
