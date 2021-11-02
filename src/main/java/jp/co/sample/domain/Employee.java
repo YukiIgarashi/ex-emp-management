@@ -32,6 +32,28 @@ public class Employee {
 	private String characteristics;
 	
 	private Integer dependentsCount;
+	
+	public Employee() {
+		super();
+	}
+	
+	public Employee(Integer id, String name, String image, String gender, Date hireDate, String mailAddress,
+			String zipCode, String address, String telephone, Integer salary, String characteristics,
+			Integer dependentsCount) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.image = image;
+		this.gender = gender;
+		this.hireDate = hireDate;
+		this.mailAddress = mailAddress;
+		this.zipCode = zipCode;
+		this.address = address;
+		this.telephone = telephone;
+		this.salary = salary;
+		this.characteristics = characteristics;
+		this.dependentsCount = dependentsCount;
+	}
 
 	public Integer getId() {
 		return id;
@@ -65,12 +87,12 @@ public class Employee {
 		this.gender = gender;
 	}
 
-	public Timestamp getTimestamp() {
-		return timestamp;
+	public Date getHireDate() {
+		return hireDate;
 	}
 
-	public void setTimestamp(Timestamp timestamp) {
-		this.timestamp = timestamp;
+	public void setHireDate(Date hireDate) {
+		this.hireDate = hireDate;
 	}
 
 	public String getMailAddress() {
@@ -131,12 +153,12 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", timestamp="
-				+ timestamp + ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address
+		return "Employee [id=" + id + ", name=" + name + ", image=" + image + ", gender=" + gender + ", hireDate="
+				+ hireDate + ", mailAddress=" + mailAddress + ", zipCode=" + zipCode + ", address=" + address
 				+ ", telephone=" + telephone + ", salary=" + salary + ", characteristics=" + characteristics
 				+ ", dependentsCount=" + dependentsCount + "]";
 	}
-	
+
 	
 	
 
