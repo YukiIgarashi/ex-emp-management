@@ -1,6 +1,9 @@
 package jp.co.sample.repository;
 
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -11,6 +14,11 @@ import org.springframework.stereotype.Repository;
 
 import jp.co.sample.domain.Administrator;
 
+/**
+ * 管理者情報検索・登録用レポジトリ
+ * @author igayu
+ *
+ */
 @Repository
 public class AdministratorRepository {
 	
@@ -20,12 +28,13 @@ public class AdministratorRepository {
 	private static final RowMapper<Administrator> ADMINISTRATOR_ROW_MAPPER
 		= new BeanPropertyRowMapper<>(Administrator.class);
 	
-	
-	/**
-	 * クエリ―用Template作成
-	 */
+	@Autowired
 	private NamedParameterJdbcTemplate templete;
 	
+	/**
+	 * 管理者登録メソッド
+	 * @param administrator　管理者オブジェクト
+	 */
 	public void insert(Administrator administrator) {
 		
 		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
@@ -37,6 +46,11 @@ public class AdministratorRepository {
 		
 	}
 	
+	/**
+	 * @param mailAddress　管理者のメールアドレス
+	 * @param password　管理者のパスワード
+	 * @return
+	 */
 	public Administrator findByMailAddressAndPassword(String mailAddress,String password) {
 		
 		String sql ="SELECT id,name,mailAddress,password "
@@ -45,13 +59,13 @@ public class AdministratorRepository {
 		SqlParameterSource param = new 
 				MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("password", password);
 		
-		Administrator administrator = templete.queryForObject(sql,param,ADMINISTRATOR_ROW_MAPPER);
+		List<Administrator> administratorList = templete.query(sql, param,ADMINISTRATOR_ROW_MAPPER);
 		
-		if(administrator == null) {
+		if(administratorList.size() == 0) {
 			return null;
 		}
 		
-		return administrator;
+		return administratorList.get(0);
 		
 	}
 	
