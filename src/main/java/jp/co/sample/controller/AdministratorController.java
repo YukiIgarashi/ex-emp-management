@@ -102,7 +102,7 @@ public class AdministratorController {
 		if(administrator == null) {
 			String message = "メールアドレスまたはパスワードが不正です。";
 			model.addAttribute("message",message);
-			return "/";
+			return "forward:/";
 			
 		}
 		
