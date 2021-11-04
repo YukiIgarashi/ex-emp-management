@@ -27,6 +27,7 @@ public class EmployeeController {
 	 * @param model　従業員リストを入れるスコープ
 	 * @return　従業員一覧ページ
 	 */
+	@RequestMapping("/showList")
 	public String showList(Model model) {
 		
 		List<Employee> employeeList = employeeService.showList();
