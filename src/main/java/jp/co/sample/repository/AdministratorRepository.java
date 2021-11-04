@@ -39,7 +39,7 @@ public class AdministratorRepository {
 		
 		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
 		
-		String sql ="INSERT INTO administrators(name,mailAddress,password) "
+		String sql ="INSERT INTO administrators(name,mail_address,password) "
 				+ "VALUES(:name,:mailAddress,:password);";
 		
 		templete.update(sql, param);
@@ -53,8 +53,8 @@ public class AdministratorRepository {
 	 */
 	public Administrator findByMailAddressAndPassword(String mailAddress,String password) {
 		
-		String sql ="SELECT id,name,mailAddress,password "
-				+ "FROM administrators WHERE mailAddress=:mailAddress AND password=:password;";
+		String sql ="SELECT id,name,mail_address,password "
+				+ "FROM administrators WHERE mail_address=:mailAddress AND password=:password;";
 		
 		SqlParameterSource param = new 
 				MapSqlParameterSource().addValue("mailAddress", mailAddress).addValue("password", password);
