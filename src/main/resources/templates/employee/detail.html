@@ -82,7 +82,7 @@
 							      写真
 							    </th>
 							    <td>
-							      <img th:src="../../static/img/e${employee.id}.png">
+							      <img th:src="@{'../../static/img/e' + {employee.id} + '.png'}">
 							    </td>
 							  </tr>
 							  <tr>
@@ -146,7 +146,7 @@
 							      特性
 							    </th>
 							    <td>
-							      <span　th:text="${employee.characteristics}"></span>
+							      <span th:text="${employee.characteristics}"></span>
 							    </td>
 							  </tr>
 							  <tr>
@@ -159,8 +159,8 @@
 									</label>
 									<label class="control-label" style="color: red" for="dependentsCount"></label>
 									<input type="hidden" name="id" value="${employee.id}">
-									<input type="text" name="dependentsCount" id="dependentsCount" class="form-control">
-									<span th:text="${employee.dependentsCount}"></span>
+									<input type="text" name="dependentsCount" id="dependentsCount" class="form-control" th:value="${employee.dependentsCount}">
+									
 							    </td>
 							  </tr>
 							</table>
