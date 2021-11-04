@@ -52,7 +52,7 @@ public class AdministratorController {
 	/**
 	 * 管理者登録を行うメソッド
 	 * @param form パラメーターを含むフォーム
-	 * @return　入力画面
+	 * @return　ログイン画面
 	 */
 	@RequestMapping("/insert")
 	public String insert(InsertAdministratorForm form) {
@@ -61,7 +61,7 @@ public class AdministratorController {
 		
 		administratorService.insert(administrator);
 		
-		return "redirect:/toInsert";
+		return "redirect:/";
 		
 	}
 	
