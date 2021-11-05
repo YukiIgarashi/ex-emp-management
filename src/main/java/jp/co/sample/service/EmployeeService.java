@@ -2,6 +2,7 @@ package jp.co.sample.service;
 
 import java.util.List;
 
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -33,6 +34,16 @@ public class EmployeeService {
 	public Employee showDetail(Integer id) {
 		
 		return employeeRepository.load(id);
+		
+	}
+	
+	/**
+	 * 従業員１件の情報を更新
+	 * @param employee 更新したい従業員オブジェクト
+	 */
+	public void update(Employee employee) {
+		
+		employeeRepository.update(employee);
 		
 	}
 

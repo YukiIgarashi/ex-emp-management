@@ -52,5 +52,22 @@ public class EmployeeController {
 		
 		return "employee/detail";
 	}
+	
+	/**
+	 * 従業員の扶養人数を更新するメソッド
+	 * @param form 更新したい従業員のフォームオブジェクト
+	 * @return 従業員一覧ページへの遷移
+	 */
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		
+		Employee employee = employeeService.showDetail(Integer.parseInt(form.getId()));
+		employee.setDependentsCount(Integer.parseInt(form.getDependentsCount()));
+		
+		employeeService.update(employee);
+		
+		return "/emloyee/showList";
+		
+	}
 
 }
