@@ -111,6 +111,17 @@ public class AdministratorController {
 		
 	}
 	
+	/**
+	 * 管理者ログアウト用メソッド
+	 * @return ログイン画面への遷移
+	 */
+	public String logout() {
+		
+		session.invalidate();
+		return "redirect:/";
+		
+	}
+	
 	
 	
 	
