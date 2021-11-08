@@ -59,6 +59,7 @@ public class EmployeeController {
 	 * @param form 更新したい従業員のフォームオブジェクト
 	 * @return 従業員一覧ページへの遷移
 	 */
+	/*
 	@RequestMapping("/update")
 	public String update(String id,String dependentsCount) {
 		
@@ -73,6 +74,16 @@ public class EmployeeController {
 		return "redirect:/employee/showList";
 		
 	}
-	
+	*/
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		
+		Employee employee = employeeService.showDetail(Integer.parseInt(form.getId()));
+		employee.setDependentsCount(Integer.parseInt(form.getDependentsCount()));
+		
+		employeeService.update(employee);
+		
+		return "redirect:/employee/showList";
+	}
 
 }
